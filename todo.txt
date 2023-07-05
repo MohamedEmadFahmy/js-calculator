@@ -1,2 +1,7 @@
-add divs in screen part for typing and result portions
-add logic lol
+DONE add numbers stacking in display
+
+DONE add divs in screen part for typing and result portions
+
+add clear method
+add logic for operations
+add logic to keep going after getting the result

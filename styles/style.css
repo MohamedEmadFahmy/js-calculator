@@ -70,8 +70,12 @@ div#buttons {
     transform: translateY(-0.2rem);
 }
 
-#calculator #all-clear:hover, #calculator #clear:hover {
+#calculator #clear:hover, #calculator #invert-sign:hover {
     background-color: #ff8888;
+}
+
+#calculator #invert-sign {
+    font-family: sans-serif;
 }
 
 #calculator .op:hover {

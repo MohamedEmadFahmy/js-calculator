@@ -52,12 +52,58 @@ function operate(operator, firstNum, secondNum){
     };
 }
 
-console.log(operate("+", 3, 5));
-console.log(operate("%", 5, 4));
-console.log(operate("*", 3, 5));
-console.log(operate("/", 3, 5));
-console.log(operate("/", 5, 4));
-console.log(operate("%", 4, 2));
+// console.log(operate("+", 3, 5));
+// console.log(operate("%", 5, 4));
+// console.log(operate("*", 3, 5));
+// console.log(operate("/", 3, 5));
+// console.log(operate("/", 5, 4));
+// console.log(operate("%", 4, 2));
+
+let displayValue = "";
+
+let displayElement = document.querySelector("#workout");
+
+displayElement.innerText = displayValue;
+
+
+
+function addDisplay(text){
+    displayValue += text;
+    displayElement.innerText = displayValue;
+}
+
+activeOperation = "none";
+
+const numbers = document.querySelectorAll(".num");
+
+numbers.forEach(number => {
+    number.addEventListener("click", () => {
+        if(displayValue.length < 14){
+            if(activeOperation == "none"){
+                let num = number.innerText;
+                addDisplay(num);
+                firstNum = +num;
+            }
+            else{
+            }
+        }
+    });
+});
+
+
+const operations = document.querySelectorAll(".op");
+
+operations.forEach(operation => {
+    operation.addEventListener("click", () => {
+        if(displayValue.length < 14){
+            let op = operation.innerText;
+            addDisplay(op);
+            activeOperation = operation.innerText; 
+        }
+    });
+});
+
+
 
 
 
