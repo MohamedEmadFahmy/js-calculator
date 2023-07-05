@@ -40,25 +40,41 @@ div#buttons {
     flex-wrap: wrap;
     gap: 10px;
 }
-#calculator .button {
+#calculator button {
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    font-size: 30px;
+    font-size: 36px;
+    font-family: monospace;
+    font-weight: 500;
     background-color: #616161;
     color: white;
     appearance: none;
     border: none;
+    transition: all .15s ease-in-out;
 }
-/* #calculator .button:hover {
-    color: black;
+#calculator #equal {
+    width: 197px;
+    height: 90px;
+    border-radius: 3rem;
+}
+#calculator button:hover {
+    background-color: #bdbdbd;
+    color: #212121;
+    transform: translateY(-0.2rem);
 }
 
-#calculator .button:hover {
-    color: black;
-} */
+#calculator #all-clear:hover, #calculator #clear:hover {
+    background-color: #ff8888;
+}
 
+#calculator .op:hover {
+    background-color: #93dadf;
+}
 
+#calculator #equal:hover {
+    background-color: #74fc7fd3;
+}
 
 
 
