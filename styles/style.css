@@ -46,7 +46,7 @@ div#buttons {
     flex-wrap: wrap;
     gap: 10px;
 }
-#calculator button {
+button {
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -78,7 +78,7 @@ div#buttons {
     font-family: sans-serif;
 }
 
-#calculator .op:hover {
+#calculator .op:hover , .selected-op {
     background-color: #93dadf;
 }
 

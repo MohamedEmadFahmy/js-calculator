@@ -61,9 +61,19 @@ function operate(operator, firstNum, secondNum){
 
 let displayValue = "";
 
+
 let displayElement = document.querySelector("#workout");
 
 displayElement.innerText = displayValue;
+
+
+
+
+let resultValue = 1000;
+
+let resultElement = document.querySelector("#result");
+
+resultElement.innerText = resultValue;
 
 
 
@@ -79,6 +89,7 @@ const numbers = document.querySelectorAll(".num");
 numbers.forEach(number => {
     number.addEventListener("click", () => {
         if(displayValue.length < 14){
+            operations.forEach(operation => operation.classList.remove("selected-op"));
             if(activeOperation == "none"){
                 let num = number.innerText;
                 addDisplay(num);
@@ -95,13 +106,30 @@ const operations = document.querySelectorAll(".op");
 
 operations.forEach(operation => {
     operation.addEventListener("click", () => {
-        if(displayValue.length < 14){
-            let op = operation.innerText;
-            addDisplay(op);
-            activeOperation = operation.innerText; 
-        }
+        operations.forEach(operation => operation.classList.remove("selected-op"));
+        activeOperation = operation.innerText; 
+        operation.classList.add("selected-op");
+        console.log(activeOperation);
     });
 });
+
+
+function clear() {
+    firstNum = 0;
+    secondNum = 0;
+    activeOperation = "none";
+    
+    displayValue = "";
+    resultValue = 0;
+
+    displayElement.innerText = displayValue;
+    resultElement.innerText = resultValue;
+
+}
+
+let clearButton = document.querySelector("#clear");
+
+clearButton.addEventListener("click", clear);
 
 
 
