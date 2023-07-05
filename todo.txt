@@ -1,0 +1,2 @@
+add divs in screen part for typing and result portions
+add logic lol
