@@ -29,6 +29,12 @@ div#screen {
     width: 100%;
     height: 22%;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px;
 }
 div#buttons {
     /* background-color: red; */
@@ -74,6 +80,28 @@ div#buttons {
 
 #calculator #equal:hover {
     background-color: #74fc7fd3;
+}
+
+#workout, #result {
+    text-align: right;
+    width: 100%;
+}
+
+div#workout {
+    color: rgb(98, 180, 98);
+    height: 45%;
+    font-family: "DS-Digital";
+    font-size: 46px;
+    letter-spacing: 5px;
+    /* background-color: rgb(255, 3, 3); */
+}
+div#result {
+    color: white;
+    height: 40%;
+    font-size: 50px;
+    font-weight: 500;
+    font-family: sans-serif;
+    /* background-color: magenta; */
 }
 
 
