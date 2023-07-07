@@ -105,7 +105,8 @@ div#result {
     font-size: 49px;
     font-weight: 500;
     font-family: sans-serif;
-    /* background-color: magenta; */
+    background-color: magenta;
+    font-family: "DS-Digital";
 }
 
 

@@ -60,9 +60,9 @@ function operate(operator, firstNum, secondNum){
 let displayValue = "";
 
 
-let displayElement = document.querySelector("#workout");
+// let displayElement = document.querySelector("#workout");
 
-displayElement.innerText = displayValue;
+// displayElement.innerText = displayValue;
 
 
 
@@ -75,10 +75,10 @@ resultElement.innerText = resultValue;
 
 
 
-function addDisplay(text){
-    displayValue += text;
-    displayElement.innerText = displayValue;
-}
+// function addDisplay(text){
+//     displayValue += text;
+//     displayElement.innerText = displayValue;
+// }
 
 activeOperation = "none";
 
