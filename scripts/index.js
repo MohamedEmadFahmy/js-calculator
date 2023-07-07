@@ -41,7 +41,7 @@ function operate(operator, firstNum, secondNum){
             return add(firstNum, secondNum);
         case "-":
             return subtract(firstNum, secondNum);
-        case "*":
+        case "×":
             return multiply(firstNum, secondNum);
         case "/":
             return divide(firstNum, secondNum);
@@ -51,72 +51,111 @@ function operate(operator, firstNum, secondNum){
 }
 
 
-let resultValue = "0";
-
 let activeOperation = "none";
 
 let resultElement = document.querySelector("#result p");
 
-resultElement.innerText = resultValue;
 
 
 
 function addDisplay(text){
 
     resultElement.innerText = text;
-    resultValue = text;
-
+    
 }
 
 
-const numbers = document.querySelectorAll(".num");
+const numberButtons = document.querySelectorAll(".num");
 
-numbers.forEach(number => {
+numberButtons.forEach(number => {
     number.addEventListener("click", () => {
 
-        if(resultValue.length > 11) return;
+        let previousValue = resultElement.innerText;
+
+        if(previousValue.length > 11) return;
         
-        operations.forEach(operation => operation.classList.remove("selected-op"));
+        operationButtons.forEach(operation => operation.classList.remove("selected-op"));
         
         if(activeOperation == "none"){
-            let previousText = resultValue;
-            if(previousText == "0"){
-                previousText = "";
+
+            if(previousValue == "0" || previousValue == "Math Error"){
+                previousValue = "";
             }
-            let num = previousText + number.innerText;
+            let num = previousValue + number.innerText;
             addDisplay(num);
             firstNum = +num;
-            console.log(firstNum);
+            console.log("First Num: " + firstNum);
         }
         else{
-            // secondNum
+            if(isNaN(+previousValue) || previousValue == "0"){
+                previousValue = "";
+                resultElement.innerText = "";
+            }
+
+            let num = previousValue + number.innerText;
+            addDisplay(num);
+            secondNum = +num;
+            console.log("Second Num: " + secondNum);
+
         }
 
     });
 });
 
 
-const operations = document.querySelectorAll(".op");
+const operationButtons = document.querySelectorAll(".op");
 
-operations.forEach(operation => {
+operationButtons.forEach(operation => {
     operation.addEventListener("click", () => {
-        operations.forEach(operation => operation.classList.remove("selected-op"));
-        activeOperation = operation.innerText; 
+        if(activeOperation == "none"){
+            let resultValue = resultElement.innerText;
+            firstNum = +resultValue;
+        }
+
+        operationButtons.forEach(operation => operation.classList.remove("selected-op"));
         operation.classList.add("selected-op");
-        console.log(activeOperation);
+        
+        
+        activeOperation = operation.innerText;
+        resultElement.innerText = activeOperation;
+
+        console.log("active op: " + activeOperation);
+        console.log("firstNum: " + firstNum);
     });
 });
 
+
+const equalsButton = document.querySelector("#equal");
+
+equalsButton.addEventListener("click", calculate);
+
+
+function calculate(){
+    let result = operate(activeOperation, firstNum, secondNum);
+    
+    if (result == "Math Error") {
+        firstNum = 0;
+    } else {
+        firstNum = +result;
+    }
+    
+    secondNum = 0;
+
+    resultElement.innerText = result;
+
+    activeOperation = "none";
+
+    operationButtons.forEach(operation => operation.classList.remove("selected-op"));
+}
 
 function clear() {
     firstNum = 0;
     secondNum = 0;
     activeOperation = "none";
     
-
-    resultValue = "0";
-
-    resultElement.innerText = resultValue;
+    
+    resultElement.innerText = "0";
+    operationButtons.forEach(operation => operation.classList.remove("selected-op"));
 
 }
 

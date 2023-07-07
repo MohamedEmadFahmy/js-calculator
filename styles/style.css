@@ -80,6 +80,7 @@ button {
 
 #calculator .op:hover , .selected-op {
     background-color: #93dadf;
+    color: #212121;
 }
 
 #calculator #equal:hover {
@@ -97,7 +98,7 @@ div#workout {
     font-family: "DS-Digital";
     font-size: 46px;
     letter-spacing: 5px;
-    
+
     /* background-color: rgb(255, 3, 3); */
 }
 div#result {
