@@ -22,12 +22,12 @@ div#calculator {
     flex-direction: column;
     padding: 20px;
     padding-top: 30px;
-    gap: 40px  ;
+    gap: 35px  ;
 }
 div#screen {
     background-color: #3B3B3B;
     width: 100%;
-    height: 22%;
+    height: 18%;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@ div#screen {
 div#buttons {
     /* background-color: red; */
     width: 100%;
-    height: 60%;
+    height: 540px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -101,12 +101,15 @@ div#workout {
 }
 div#result {
     color: white;
-    height: 40%;
-    font-size: 49px;
+    height: 100%;
+    font-size: 70px;
     font-weight: 500;
     font-family: sans-serif;
-    background-color: magenta;
     font-family: "DS-Digital";
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+    /* background-color: magenta; */
 }
 
 
