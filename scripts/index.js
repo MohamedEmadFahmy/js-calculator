@@ -57,7 +57,7 @@ function operate(operator, firstNum, secondNum){
 // console.log(operate("/", 5, 4));
 // console.log(operate("%", 4, 2));
 
-let displayValue = "";
+// let displayValue = "";
 
 
 // let displayElement = document.querySelector("#workout");
@@ -67,18 +67,21 @@ let displayValue = "";
 
 
 
-let resultValue = 1000;
+let resultValue = "0";
 
-let resultElement = document.querySelector("#result");
+let resultElement = document.querySelector("#result p");
 
 resultElement.innerText = resultValue;
 
 
 
-// function addDisplay(text){
-//     displayValue += text;
-//     displayElement.innerText = displayValue;
-// }
+function addDisplay(text){
+    if(resultValue == "0"){
+        resultValue = "";
+    }
+    resultValue += text;
+    resultElement.innerText = resultValue;
+}
 
 activeOperation = "none";
 
@@ -86,7 +89,7 @@ const numbers = document.querySelectorAll(".num");
 
 numbers.forEach(number => {
     number.addEventListener("click", () => {
-        if(displayValue.length < 14){
+        if(resultValue.length < 12){
             operations.forEach(operation => operation.classList.remove("selected-op"));
             if(activeOperation == "none"){
                 let num = number.innerText;
@@ -117,10 +120,9 @@ function clear() {
     secondNum = 0;
     activeOperation = "none";
     
-    displayValue = "";
-    resultValue = 0;
 
-    displayElement.innerText = displayValue;
+    resultValue = "0";
+
     resultElement.innerText = resultValue;
 
 }

@@ -97,18 +97,19 @@ div#workout {
     font-family: "DS-Digital";
     font-size: 46px;
     letter-spacing: 5px;
+    
     /* background-color: rgb(255, 3, 3); */
 }
 div#result {
     color: white;
     height: 100%;
-    font-size: 70px;
+    font-size: 66px;
     font-weight: 500;
-    font-family: sans-serif;
     font-family: "DS-Digital";
     display: flex;
     align-items: flex-end;
     justify-content: right;
+
     /* background-color: magenta; */
 }
 
