@@ -21,8 +21,8 @@ function divide(a, b){
     return +num.toFixed(13);
 }
 
-function remainder(a, b){
-    let num = (a % b);
+function percent(a){
+    let num = (a / 100);
     return +num.toFixed(13);
 }
 
@@ -45,8 +45,6 @@ function operate(operator, firstNum, secondNum){
             return multiply(firstNum, secondNum);
         case "/":
             return divide(firstNum, secondNum);
-        case "%":
-            return remainder(firstNum, secondNum);
         default:
             return "Math Error";
     };
