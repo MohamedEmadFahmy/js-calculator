@@ -50,24 +50,10 @@ function operate(operator, firstNum, secondNum){
     };
 }
 
-// console.log(operate("+", 3, 5));
-// console.log(operate("%", 5, 4));
-// console.log(operate("*", 3, 5));
-// console.log(operate("/", 3, 5));
-// console.log(operate("/", 5, 4));
-// console.log(operate("%", 4, 2));
-
-// let displayValue = "";
-
-
-// let displayElement = document.querySelector("#workout");
-
-// displayElement.innerText = displayValue;
-
-
-
 
 let resultValue = "0";
+
+let activeOperation = "none";
 
 let resultElement = document.querySelector("#result p");
 
@@ -76,29 +62,36 @@ resultElement.innerText = resultValue;
 
 
 function addDisplay(text){
-    if(resultValue == "0"){
-        resultValue = "";
-    }
-    resultValue += text;
-    resultElement.innerText = resultValue;
+
+    resultElement.innerText = text;
+    resultValue = text;
+
 }
 
-activeOperation = "none";
 
 const numbers = document.querySelectorAll(".num");
 
 numbers.forEach(number => {
     number.addEventListener("click", () => {
-        if(resultValue.length < 12){
-            operations.forEach(operation => operation.classList.remove("selected-op"));
-            if(activeOperation == "none"){
-                let num = number.innerText;
-                addDisplay(num);
-                firstNum = +num;
+
+        if(resultValue.length > 11) return;
+        
+        operations.forEach(operation => operation.classList.remove("selected-op"));
+        
+        if(activeOperation == "none"){
+            let previousText = resultValue;
+            if(previousText == "0"){
+                previousText = "";
             }
-            else{
-            }
+            let num = previousText + number.innerText;
+            addDisplay(num);
+            firstNum = +num;
+            console.log(firstNum);
         }
+        else{
+            // secondNum
+        }
+
     });
 });
 
