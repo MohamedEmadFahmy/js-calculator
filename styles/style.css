@@ -11,6 +11,7 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    flex-direction: column;
 }
 
 div#calculator {
@@ -87,8 +88,11 @@ button {
     background-color: #74fc7fd3;
 }
 
-#workout, #result {
+#result {
     text-align: right;
+    width: 100%;
+}
+#result p {
     width: 100%;
 }
 
@@ -115,7 +119,24 @@ div#result {
 }
 
 
+footer {
+    position: absolute;
+    height: 40px;
+    bottom: 20px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 24px;
+    font-family: Calibri;
+    font-weight: 500;
+}
+
+footer img {
+    width: 20px;
+}
 
 
 

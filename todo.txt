@@ -14,4 +14,4 @@ DONE add logic for %
 
 DONE add logic for invert sign button
 
-add logic for decimal point
+DONE add logic for decimal point
