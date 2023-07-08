@@ -1,5 +1,3 @@
-
-
 function add(a, b){
     let num = (a + b);
     return +num.toFixed(13);
@@ -23,6 +21,11 @@ function divide(a, b){
 
 function percent(a){
     let num = (a / 100);
+    return +num.toFixed(13);
+}
+
+function invertSign(a){
+    let num = -a;
     return +num.toFixed(13);
 }
 
@@ -189,6 +192,20 @@ percentButton.addEventListener("click", () => {
     }
     else{
         secondNum = percent(secondNum);
+        resultElement.innerText = secondNum;
+    }
+});
+
+
+const invertSignButton = document.querySelector("#invert-sign");
+
+invertSignButton.addEventListener("click", () => {
+    if(activeOperation == "none"){
+        firstNum = invertSign(firstNum);
+        resultElement.innerText = firstNum;
+    }
+    else{
+        secondNum = invertSign(secondNum);
         resultElement.innerText = secondNum;
     }
 });
