@@ -8,6 +8,10 @@ DONE add active animation for active operator and remove whenever you press anot
 
 DONE add logic for operations
 
+DONE add logic to keep going after getting the result
 
+DONE add logic for %
 
-add logic to keep going after getting the result
+add logic for invert sign button
+
+add logic for decimal point

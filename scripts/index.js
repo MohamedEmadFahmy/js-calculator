@@ -43,7 +43,7 @@ function operate(operator, firstNum, secondNum){
             return subtract(firstNum, secondNum);
         case "×":
             return multiply(firstNum, secondNum);
-        case "/":
+        case "÷":
             return divide(firstNum, secondNum);
         default:
             return "Math Error";
@@ -156,6 +156,8 @@ function calculate(){
 
     resultElement.innerText = result;
 
+    console.log(result);
+
     activeOperation = "none";
 
     operationButtons.forEach(operation => operation.classList.remove("selected-op"));
@@ -178,6 +180,18 @@ let clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", clear);
 
 
+const percentButton = document.querySelector("#percent");
+
+percentButton.addEventListener("click", () => {
+    if(activeOperation == "none"){
+        firstNum = percent(firstNum);
+        resultElement.innerText = firstNum;
+    }
+    else{
+        secondNum = percent(secondNum);
+        resultElement.innerText = secondNum;
+    }
+});
 
 
 
