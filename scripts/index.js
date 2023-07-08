@@ -29,12 +29,19 @@ function invertSign(a){
     return +num.toFixed(13);
 }
 
+function decimalize(a){
+    if((a+"").includes(".")){
+        return;
+    }
+    
+    return (a + ".");
+}
 
 let firstNum = 0;
 
 let operation = "";
 
-let secondNum = 0;
+let secondNum = "nothing";
 
 
 
@@ -122,11 +129,11 @@ operationButtons.forEach(operation => {
             addDisplay(activeOperation);
         }
         else {
-            if (secondNum !== 0) {
+            if (secondNum != "nothing") {
                 calculate();
-                activeOperation = clickedOperation;
             }
             addDisplay(firstNum + " " + clickedOperation);
+            activeOperation = clickedOperation;
         }
 
 
@@ -142,8 +149,10 @@ equalsButton.addEventListener("click", calculate);
 
 
 function calculate(){
+    if(secondNum == "nothing") return;
 
-    if(activeOperation == "none" || (activeOperation != "none" && secondNum == 0 )){
+    if(activeOperation == "none"){
+        resultElement.innerText = firstNum;
         return;
     }
 
@@ -155,7 +164,7 @@ function calculate(){
         firstNum = +result;
     }
 
-    secondNum = 0;
+    secondNum = "nothing";
 
     resultElement.innerText = result;
 
@@ -169,7 +178,7 @@ function calculate(){
 
 function clear() {
     firstNum = 0;
-    secondNum = 0;
+    secondNum = "nothing";
     activeOperation = "none";
     
     
@@ -209,6 +218,23 @@ invertSignButton.addEventListener("click", () => {
         resultElement.innerText = secondNum;
     }
 });
+
+const decimalButton = document.querySelector("#point");
+
+decimalButton.addEventListener("click", () => {
+
+    console.log(".");
+
+    if(activeOperation == "none"){
+        firstNum = decimalize(firstNum);
+        resultElement.innerText = firstNum;
+    }
+    else{
+        secondNum = decimalize(secondNum);
+        resultElement.innerText = secondNum;
+    }
+});
+
 
 
 
