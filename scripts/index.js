@@ -74,7 +74,7 @@ numberButtons.forEach(number => {
 
         if(previousValue.length > 11) return;
         
-        operationButtons.forEach(operation => operation.classList.remove("selected-op"));
+        // operationButtons.forEach(operation => operation.classList.remove("selected-op"));
         
         if(activeOperation == "none"){
 
@@ -107,20 +107,28 @@ const operationButtons = document.querySelectorAll(".op");
 
 operationButtons.forEach(operation => {
     operation.addEventListener("click", () => {
-        if(activeOperation == "none"){
-            let resultValue = resultElement.innerText;
-            firstNum = +resultValue;
-        }
 
         operationButtons.forEach(operation => operation.classList.remove("selected-op"));
         operation.classList.add("selected-op");
-        
-        
-        activeOperation = operation.innerText;
-        resultElement.innerText = activeOperation;
 
-        console.log("active op: " + activeOperation);
+        let clickedOperation = operation.innerText;
+
+        if (activeOperation == "none") {
+            firstNum = +resultElement.innerText;
+            activeOperation = clickedOperation;
+            addDisplay(activeOperation);
+        }
+        else {
+            if (secondNum !== 0) {
+                calculate();
+                activeOperation = clickedOperation;
+            }
+            addDisplay(firstNum + " " + clickedOperation);
+        }
+
+
         console.log("firstNum: " + firstNum);
+        console.log("active op: " + activeOperation);
     });
 });
 
@@ -131,6 +139,11 @@ equalsButton.addEventListener("click", calculate);
 
 
 function calculate(){
+
+    if(activeOperation == "none" || (activeOperation != "none" && secondNum == 0 )){
+        return;
+    }
+
     let result = operate(activeOperation, firstNum, secondNum);
     
     if (result == "Math Error") {
@@ -138,7 +151,7 @@ function calculate(){
     } else {
         firstNum = +result;
     }
-    
+
     secondNum = 0;
 
     resultElement.innerText = result;
@@ -146,6 +159,7 @@ function calculate(){
     activeOperation = "none";
 
     operationButtons.forEach(operation => operation.classList.remove("selected-op"));
+    
 }
 
 function clear() {

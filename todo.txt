@@ -6,5 +6,8 @@ DONE add clear method
 
 DONE add active animation for active operator and remove whenever you press another key
 
-add logic for operations
+DONE add logic for operations
+
+
+
 add logic to keep going after getting the result
